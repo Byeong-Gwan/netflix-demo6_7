@@ -43,7 +43,7 @@ const PopularMovieSlide = () => {
       responsive={responsive}
     >
       {data?.results?.map((movie, index) => <MovieCard key={index} movie={movie} />)}
-    </Carousel>;
+    </Carousel>
     </div>
   )
 }

@@ -1,0 +1,20 @@
+.carousel-container {
+    overflow: hidden;
+    height: 360px;
+}
+
+/* Default (mobile/tablet): keep items clipped to avoid spill */
+.carousel-container .react-multi-carousel-item {
+    overflow: hidden;
+}
+
+/* Desktop: allow overflow for hover-scale effects and increase height */
+@media (min-width: 1024px) {
+  .carousel-container {
+    overflow: visible;
+    height: 440px;
+  }
+  .carousel-container .react-multi-carousel-item {
+    overflow: visible;
+  }
+}
