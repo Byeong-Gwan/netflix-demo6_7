@@ -24,10 +24,25 @@
     opacity: 1;
 }
 
-.movie-card:hover {
-    transform: scale(1.3) translateZ(20px);
-    z-index: 2;;
+/* Show overlay when hovering the card, not only the overlay area */
+.movie-card:hover .overlay,
+.movie-card.open .overlay {
+    opacity: 1;
 }
+
+.movie-card:hover,
+.movie-card.open {
+    transform: scale(1.1);
+    z-index: 2;
+}
+
+@media (max-width: 480px) {
+  .movie-card:hover,
+  .movie-card.open {
+    transform: scale(1.06);
+  }
+}
+
 
 .genres {
     display: flex;
