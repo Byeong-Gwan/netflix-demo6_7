@@ -25,7 +25,7 @@ const TopRatedSlide = () => {
     const { data, isLoading, isError, error } = useTopRatedMoviesQuery();
 
     if (isLoading) {
-      return <div>Loading...</div>
+      return;
     }
   
     if (isError) {

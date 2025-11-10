@@ -25,7 +25,7 @@ const UpcomingSlide = () => {
     const { data, isLoading, isError, error } = useUpcomingMoviesQuery();
 
     if (isLoading) {
-      return <div>Loading...</div>
+      return;
     }
   
     if (isError) {
