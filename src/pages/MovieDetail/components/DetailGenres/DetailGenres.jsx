@@ -3,7 +3,9 @@ import React from 'react'
 const DetailGenres = ({ genres = [] }) => {
   return (
     <div className="detail-genres">
-      장르: {genres.map((g) => g.name).join(', ')}
+      {genres.map((g) => (
+        <span key={g.id || g.name} className="genre-chip">{g.name}</span>
+      ))}
     </div>
   )
 }

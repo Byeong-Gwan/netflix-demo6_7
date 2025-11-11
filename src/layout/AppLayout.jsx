@@ -11,8 +11,15 @@ const AppLayout = () => {
     const navigate = useNavigate()
     const searchByKeyword = (event) => {
         event.preventDefault();
-        // url 바꿔준다.
-        navigate(`/movies?q=${keyword}`);
+        const q = (keyword || '').trim();
+        // 빈값이면 페이지를 확실히 초기화할 수 있도록 reset 파라미터를 함께 보낸다.
+        if (!q) {
+            const ts = Date.now();
+            navigate(`/movies?reset=1&ts=${ts}`);
+        } else {
+            // url 바꿔준다.
+            navigate(`/movies?q=${encodeURIComponent(q)}`);
+        }
         setKeyword('');
     }
   return (
@@ -52,3 +59,4 @@ const AppLayout = () => {
 }
 
 export default AppLayout
+

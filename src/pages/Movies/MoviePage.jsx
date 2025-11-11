@@ -8,6 +8,8 @@ import Alert from 'react-bootstrap/Alert';
 import './MoviePage.style.css'
 import { useMovieGenreQuery } from '../../hooks/useMovieGenre';
 
+let __prevKeyword; // module-scope cache to detect keyword change with minimal diff
+
 // 경로 2가지 
 // nav바에서 클릭해서 온 경우 => popularMovie 보여주기
 // keyword를 입력해서 온 경우 => keyword와 관련된 영화들을 보여줌
@@ -18,8 +20,13 @@ import { useMovieGenreQuery } from '../../hooks/useMovieGenre';
 // page 값 바뀔때 마다 useSearchMovie에 page 까지 넣어서 fetch
 const MoviePage = () => {
   const [query, setQuery] = useSearchParams();
-  const [page, setPage] = useState(1);
   const keyword = query.get('q');
+  const reset = query.get('reset');
+  const [page, setPage] = useState(() => {
+    const key = `movies:page:${keyword || 'all'}`;
+    const saved = Number(sessionStorage.getItem(key));
+    return saved > 0 ? saved : 1;
+  });
   const { data: genreData } = useMovieGenreQuery();
   const [sortBy, setSortBy] = useState('popularity');
   const [genre, setGenre] = useState(null);
@@ -27,12 +34,16 @@ const MoviePage = () => {
 
   const handlePageClick = ({selected}) => {
     setPage(selected + 1);
+    const key = `movies:page:${keyword || 'all'}`;
+    sessionStorage.setItem(key, String(selected + 1));
   }
 
   const { data, isLoading, isError, error } = useSearchMovieQuery({keyword, page});
   useEffect(() => {
-    setPage(1);
-  }, [keyword]);
+    const key = `movies:page:${keyword || 'all'}`;
+    if (reset) { sessionStorage.removeItem(key); const p = new URLSearchParams(query); p.delete('reset'); setQuery(p); setPage(1); __prevKeyword = keyword; return; }
+    if (__prevKeyword !== keyword) { setPage(1); __prevKeyword = keyword; }
+  }, [keyword, reset]);
   if (isLoading) {
     return;
   }
@@ -80,7 +91,7 @@ const MoviePage = () => {
           onPageChange={handlePageClick}
           pageRangeDisplayed={3}
           marginPagesDisplayed={2}
-          pageCount={data?.total_pages || 0}
+          pageCount={Math.min(data?.total_pages || 0, 500)}
           containerClassName="nf-pagination"
           pageClassName="nf-page"
           pageLinkClassName="nf-link"
