@@ -60,9 +60,9 @@ const MoviePage = () => {
           </DropdownButton>
         </Col>
         <Col lg={12} xs={12}>
-        <Row>
+        <Row className="g-1 g-md-2">
           {movies.map((movie, index) => (
-              <Col key={index}>
+              <Col key={index} xs={6} sm={6} md={4} lg={3}>
                 <MovieCard movie={movie} />
               </Col>
             ))}
