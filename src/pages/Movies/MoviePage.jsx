@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSearchMovieQuery } from '../../hooks/useSearchMovie';
 import { useSearchParams } from 'react-router-dom';
 import { Col, Container, Row, Dropdown, DropdownButton } from 'react-bootstrap';
@@ -30,6 +30,9 @@ const MoviePage = () => {
   }
 
   const { data, isLoading, isError, error } = useSearchMovieQuery({keyword, page});
+  useEffect(() => {
+    setPage(1);
+  }, [keyword]);
   if (isLoading) {
     return;
   }
@@ -60,20 +63,24 @@ const MoviePage = () => {
           </DropdownButton>
         </Col>
         <Col lg={12} xs={12}>
-        <Row className="g-1 g-md-2">
-          {movies.map((movie, index) => (
-              <Col key={index} xs={6} sm={6} md={4} lg={3}>
-                <MovieCard movie={movie} />
-              </Col>
-            ))}
-        </Row>
+        {movies.length === 0 ? (
+          <Alert variant="warning" className="mt-2">검색 결과가 없습니다.</Alert>
+        ) : (
+          <Row className="g-1 g-md-2">
+            {movies.map((movie, index) => (
+                <Col key={index} xs={6} sm={6} md={4} lg={3}>
+                  <MovieCard movie={movie} />
+                </Col>
+              ))}
+          </Row>
+        )}
         <ReactPaginate
           nextLabel="›"
           previousLabel="‹"
           onPageChange={handlePageClick}
           pageRangeDisplayed={3}
           marginPagesDisplayed={2}
-          pageCount={data?.total_pages} // 전체 페이지
+          pageCount={data?.total_pages || 0}
           containerClassName="nf-pagination"
           pageClassName="nf-page"
           pageLinkClassName="nf-link"
