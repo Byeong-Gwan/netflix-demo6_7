@@ -1,0 +1,80 @@
+@media (max-width: 576px) {
+  /* Force 2-column layout for the movie grid on mobile */
+  .container .row.g-1.g-md-2 > [class^='col'],
+  .container .row.g-1.g-md-2 > [class*=' col-'],
+  .container-fluid .row.g-1.g-md-2 > [class^='col'],
+  .container-fluid .row.g-1.g-md-2 > [class*=' col-'] {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+
+  /* Make dropdown buttons expand nicely on mobile */
+  .dropdown.flex-fill.w-100 {
+    min-width: 0;
+  }
+}
+/* 바깥 컨테이너: 칩 형태의 바 */
+.nf-pagination {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+    padding: 8px 12px;
+    width: max-content;          /* shrink to content */
+    margin: 16px auto;           /* center horizontally */
+    background: #141414;       /* 넷플릭스 다크 */
+    border-radius: 999px;
+    box-shadow: 0 6px 16px rgba(0,0,0,.25);
+  }
+  
+  /* 공통 링크(숫자/이동/…) */
+  .nf-link {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 36px;
+    height: 36px;
+    padding: 0 12px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    color: #e5e5e5;
+    transition: transform .15s ease, background .15s ease, color .15s ease, box-shadow .15s ease;
+    user-select: none;
+  }
+  
+  /* 호버/포커스 시 가벼운 확대 */
+  .nf-link:hover,
+  .nf-link:focus-visible {
+    transform: scale(1.06);
+    background: #2a2a2a;
+    color: #fff;
+    outline: none;
+  }
+  
+  /* 활성 페이지: 넷플릭스 레드 */
+  .nf-page.is-active .nf-link {
+    background: #e50914;
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(229, 9, 20, .35);
+  }
+  
+  /* 이전/다음 버튼은 폭 고정 */
+  .nf-nav .nf-link {
+    min-width: 36px;
+    font-size: 18px; /* ‹ › 가독성 */
+  }
+  
+  /* ... (ellipsis) 고정 표시 */
+  .nf-break .nf-link {
+    cursor: default;
+    pointer-events: none;
+    color: #9a9a9a;
+  }
+  
+  /* 모바일 살짝 컴팩트 */
+  @media (max-width: 480px) {
+    .nf-pagination { gap: 6px; padding: 6px 10px; }
+    .nf-link { min-width: 32px; height: 32px; padding: 0 10px; font-size: 13px; }
+    .nf-nav .nf-link { font-size: 16px; }
+  }
