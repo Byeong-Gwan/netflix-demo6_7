@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDetailsMovieQuery } from '../../hooks/useDetailsMovie';
 import { useMovieReviewsQuery } from '../../hooks/useMovieReviews';
+import { useMovieTrailerQuery } from '../../hooks/useMovieTrailer';
 import DetailHero from './components/DetailHero/DetailHero';
 import DetailMeta from './components/DetailMeta/DetailMeta';
 import DetailGenres from './components/DetailGenres/DetailGenres';
@@ -15,6 +16,7 @@ const MovieDetailPage = () => {
   const { data, isLoading, isError, error } = useDetailsMovieQuery(id);
   const [reviewPage, setReviewPage] = useState(1);
   const { data: reviewData } = useMovieReviewsQuery({ movie_id: id, page: reviewPage });
+  const { data: trailerData } = useMovieTrailerQuery(id);
 
   // 리뷰 누적(페이지 더보기 시 append)
   const [allReviews, setAllReviews] = useState([]);
@@ -40,7 +42,7 @@ const MovieDetailPage = () => {
       />
       <DetailGenres genres={data.genres} />
       <DetailOverview text={data.overview} />
-      <DetailTrailer videos={data.videos?.results || []} />
+      <DetailTrailer videos={trailerData?.results || []} />
       <DetailReviews
         reviews={allReviews}
         page={reviewData?.page || 1}

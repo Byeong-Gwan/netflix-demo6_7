@@ -71,3 +71,46 @@
   .banner-text-area h1 { font-size: 18px; }
   .banner-text-area p { -webkit-line-clamp: 2; line-clamp: 2; }
 }
+
+/* Play button */
+.banner-play-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start; /* prevent stretching in column flex parent */
+    height: 32px;
+    min-width: 96px;
+    width: fit-content;
+    padding: 0 12px;
+    margin-top: 10px; /* space from description */
+    background-color: #e50914;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(229, 9, 20, 0.35);
+    transition: background-color 0.2s ease, transform 0.06s ease, box-shadow 0.2s ease;
+}
+
+.banner-play-btn:hover {
+    background-color: #f6121d;
+    box-shadow: 0 6px 16px rgba(229, 9, 20, 0.45);
+}
+
+.banner-play-btn:active {
+    transform: translateY(1px);
+}
+
+@media (max-width: 768px) {
+    .banner-play-btn {
+      height: 30px;
+      min-width: 90px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+}
