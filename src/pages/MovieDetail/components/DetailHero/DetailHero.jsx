@@ -1,5 +1,5 @@
 import React from 'react'
-import IMG from '../../../../utils/image'
+import IMG from '../../../../common/comomImage/image'
 
 const DetailHero = ({ backdrop_path, poster_path, title }) => {
 
