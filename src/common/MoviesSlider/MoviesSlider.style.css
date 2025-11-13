@@ -3,6 +3,12 @@
     height: 360px;
 }
 
+/* Align with banner text left padding */
+.movies-section {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
 /* Default (mobile/tablet): keep items clipped to avoid spill */
 .carousel-container .react-multi-carousel-item {
     overflow: hidden;
@@ -16,5 +22,12 @@
   }
   .carousel-container .react-multi-carousel-item {
     overflow: visible;
+  }
+}
+
+@media (max-width: 768px) {
+  .movies-section {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
