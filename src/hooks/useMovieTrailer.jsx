@@ -11,5 +11,6 @@ export const useMovieTrailerQuery = (id) => {
         queryFn: fetchMovieTrailer,
         select: (res) => res.data,
         refetchOnMount: false,
+        enabled: !!id, // don't call API until id is available
     })
 }
