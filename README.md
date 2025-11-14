@@ -21,11 +21,9 @@
 - URL: https://movie-react-demo-app.vercel.app/ 
 
 ### Demo
-https://user-images.githubusercontent.com/.../home.mp4
-
-https://user-images.githubusercontent.com/.../list.mp4
-
-https://user-images.githubusercontent.com/.../detail.mp4
+![Home](./screenshots/home.mp4)
+![Movies Pagination](./screenshots/list.mp4)
+![Movies Detail Page](./screenshots/detail.mp4)
 
 ### 페이지 구성
 - Home ('/')
@@ -33,19 +31,18 @@ https://user-images.githubusercontent.com/.../detail.mp4
 - Movie Detail Page ('/movies/:movie_id)
 
 ### 어려웠던 점 && 아쉬운 점
-    1. 문제
-        - 상세 페이지 레이아웃을 어떻게 잡아야 할지 몰라 오래 막혔음.
-    
-    2. 해결 방향
-        - 화면을 몇 개의 블록(히어로, 포스터/정보, 트레일러, 리뷰) 나눔
-        - 레이아웃 안(Flex vs Grid)을 비교
-        - AI를 통해서 방향 검증 요청
-    
-    3. 결과
-        - 모바일, Web 모두에서 안정적인 레이아웃 형성
-        - CLS(레이아웃 흔들림)와 가독성이 개선
+1. 문제
+    - 상세 페이지 레이아웃을 어떻게 잡아야 할지 몰라 오래 막혔음.
 
-    4. 배운 점
-        - 디자인 토큰으로 일관성 유지의 중요성
-    
+2. 해결 방향
+    - 화면을 몇 개의 블록(히어로, 포스터/정보, 트레일러, 리뷰) 나눔
+    - 레이아웃 안(Flex vs Grid)을 비교
+    - AI를 통해서 방향 검증 요청
+
+3. 결과
+    - 모바일, Web 모두에서 안정적인 레이아웃 형성
+    - CLS(레이아웃 흔들림)와 가독성이 개선
+
+4. 배운 점
+    - 디자인 토큰으로 일관성 유지의 중요성
 
