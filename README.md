@@ -19,17 +19,13 @@
 ### 배포 
 - Vercel
 - URL: https://movie-react-demo-app.vercel.app/ 
+
 ### Demo
-<div align="center">
-  <h3>Movie Home</h3>
-  <video src="./screenshots/home.mp4" width="70%" controls muted playsinline></video>
+https://user-images.githubusercontent.com/.../home.mp4
 
-  <h3>Movie List</h3>
-  <video src="./screenshots/list.mp4" width="70%" controls muted playsinline></video>
+https://user-images.githubusercontent.com/.../list.mp4
 
-  <h3>Movie Detail</h3>
-  <video src="./screenshots/detail.mp4" width="70%" controls muted playsinline></video>
-</div>
+https://user-images.githubusercontent.com/.../detail.mp4
 
 ### 페이지 구성
 - Home ('/')
@@ -37,12 +33,19 @@
 - Movie Detail Page ('/movies/:movie_id)
 
 ### 어려웠던 점 && 아쉬운 점
-    AI를 사용하지 않고 작업을 하려고 했었는데 detail page 같은 경우 생각보다 너무 어려웠다.
-    API 호출하는 거 까지는 성공했고 hooks 에 파일을 만들어 데이터 가져오는 거까지는 성공했지만,
-    디자인적인 부분에서 어떻게 화면을 구성해야될지 감이 오지 않아 꽤 오랜 시간을 썼지만...
-    결국 AI의 도움을 받고 말았다.. 
+    1. 문제
+        - 상세 페이지 레이아웃을 어떻게 잡아야 할지 몰라 오래 막혔음.
     
-    물론 AI 도움을 받았다고해서 코드를 안보지는 않았지만, 이부분이 참 아쉬웠던 부분인거 같다.. 
-    이번 기회를 통해 css 기초 공부가 많이 부족하다는걸 알게 되었고, 어떻게 공부를 해야될지 알게된 계기였다.
+    2. 해결 방향
+        - 화면을 몇 개의 블록(히어로, 포스터/정보, 트레일러, 리뷰) 나눔
+        - 레이아웃 안(Flex vs Grid)을 비교
+        - AI를 통해서 방향 검증 요청
+    
+    3. 결과
+        - 모바일, Web 모두에서 안정적인 레이아웃 형성
+        - CLS(레이아웃 흔들림)와 가독성이 개선
 
+    4. 배운 점
+        - 디자인 토큰으로 일관성 유지의 중요성
+    
 
