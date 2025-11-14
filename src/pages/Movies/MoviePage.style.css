@@ -13,13 +13,13 @@
     min-width: 0;
   }
 }
-/* 바깥 컨테이너: 칩 형태의 바 */
-.nf-pagination {
+  /* 바깥 컨테이너: 칩 형태의 바 */
+  .nf-pagination {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     list-style: none;
-    padding: 8px 12px;
+    padding: 6px 10px;
     width: max-content;          /* shrink to content */
     margin: 16px auto;           /* center horizontally */
     background: #141414;       /* 넷플릭스 다크 */
@@ -32,12 +32,13 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    min-width: 36px;
-    height: 36px;
-    padding: 0 12px;
+    min-width: 32px;
+    height: 32px;
+    padding: 0 10px;
     border-radius: 999px;
     text-decoration: none;
     font-weight: 600;
+    font-size: 14px;
     color: #e5e5e5;
     transition: transform .15s ease, background .15s ease, color .15s ease, box-shadow .15s ease;
     user-select: none;
@@ -61,8 +62,8 @@
   
   /* 이전/다음 버튼은 폭 고정 */
   .nf-nav .nf-link {
-    min-width: 36px;
-    font-size: 18px; /* ‹ › 가독성 */
+    min-width: 32px;
+    font-size: 16px; /* ‹ › 가독성 */
   }
   
   /* ... (ellipsis) 고정 표시 */
@@ -74,7 +75,7 @@
   
   /* 모바일 살짝 컴팩트 */
   @media (max-width: 480px) {
-    .nf-pagination { gap: 6px; padding: 6px 10px; }
-    .nf-link { min-width: 32px; height: 32px; padding: 0 10px; font-size: 13px; }
-    .nf-nav .nf-link { font-size: 16px; }
+    .nf-pagination { gap: 5px; padding: 5px 8px; }
+    .nf-link { min-width: 28px; height: 28px; padding: 0 8px; font-size: 12px; }
+    .nf-nav .nf-link { font-size: 15px; }
   }

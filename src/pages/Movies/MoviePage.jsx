@@ -90,7 +90,7 @@ const MoviePage = () => {
           previousLabel="‹"
           onPageChange={handlePageClick}
           pageRangeDisplayed={3}
-          marginPagesDisplayed={2}
+          marginPagesDisplayed={1}
           pageCount={Math.min(data?.total_pages || 0, 500)}
           containerClassName="nf-pagination"
           pageClassName="nf-page"
