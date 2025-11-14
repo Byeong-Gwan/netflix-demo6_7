@@ -11,5 +11,6 @@ export const useMovieTrailerQuery = (id) => {
         queryFn: fetchMovieTrailer,
         select: (res) => res.data,
         refetchOnMount: false,
+        enabled: !!id // id가 존재할 때만 호출
     })
 }
