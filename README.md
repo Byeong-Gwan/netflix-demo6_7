@@ -21,9 +21,9 @@
 - URL: https://movie-react-demo-app.vercel.app/ 
 
 ### Demo
-![Home](./screenshots/home.mp4)
-![Movies Pagination](./screenshots/list.mp4)
-![Movies Detail Page](./screenshots/detail.mp4)
+![Home](./screenshots/home.png)
+![Movies Pagination](./screenshots/list.png)
+![Movies Detail Page](./screenshots/detail.png)
 
 ### 페이지 구성
 - Home ('/')
