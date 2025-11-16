@@ -3,6 +3,9 @@ import { useParams } from 'react-router-dom';
 import { useDetailsMovieQuery } from '../../hooks/useDetailsMovie';
 import { useMovieReviewsQuery } from '../../hooks/useMovieReviews';
 import { useMovieTrailerQuery } from '../../hooks/useMovieTrailer';
+import { useSimilarMoviesQuery } from '../../hooks/useSimilarMovies';
+import MoviesSlider from '../../common/MoviesSlider/MoviesSlider';
+import { responsive } from '../../constants/responsive';
 import DetailHero from './components/DetailHero/DetailHero';
 import DetailMeta from './components/DetailMeta/DetailMeta';
 import DetailGenres from './components/DetailGenres/DetailGenres';
@@ -17,6 +20,7 @@ const MovieDetailPage = () => {
   const [reviewPage, setReviewPage] = useState(1);
   const { data: reviewData } = useMovieReviewsQuery({ movie_id: id, page: reviewPage });
   const { data: trailerData } = useMovieTrailerQuery(id);
+  const { data: similarData } = useSimilarMoviesQuery(id);
 
   // 리뷰 누적(페이지 더보기 시 append)
   const [allReviews, setAllReviews] = useState([]);
@@ -43,6 +47,11 @@ const MovieDetailPage = () => {
       <DetailGenres genres={data.genres} />
       <DetailOverview text={data.overview} />
       <DetailTrailer videos={trailerData?.results || []} />
+      {Array.isArray(similarData?.results) && similarData.results.length > 0 && (
+        <div className="detail-similar">
+          <MoviesSlider title="비슷한 영화" movies={similarData.results} responsive={responsive} />
+        </div>
+      )}
       <DetailReviews
         reviews={allReviews}
         page={reviewData?.page || 1}
